@@ -41,6 +41,7 @@ This is a simple cinema booking system with separate front-end and back-end comp
 ## Features
 
 - Admin Panel:
+  - Authentication: login, logout based on JWT 
   - Manage cinemas: crud operations
   - Manage movies: crud operations
   - Manage users: crud operations
@@ -102,7 +103,15 @@ docker-compose up -d
 You can run locally MySQL database instead, just make sure to update the `application-druid.yml` file in `cinema-admin` module.
 
 
-2. Run the backend:
+2. Import the database schema and data:
+
+You can import the database schema and data from the `cinema.sql` file in the `sql` directory of the project.
+
+```shell
+mysql -u root -p < sql/cinema.sql
+```
+
+3. Run the backend:
 
 The easiest way to run the backend is to run the `CinemaAdminApplication` class in the `cinema-admin` module in IntelliJ IDEA.
 Otherwise, you can use maven to run the project:
@@ -144,11 +153,13 @@ After running the frontend, you can access:
 
 ### Admin Panel
 
-- Please watch the video [here](https://drive.google.com/file/d/1J9Q6J9Q6J9Q6J9Q6J9Q6J9Q6J9Q6J9Q6/view?usp=sharing).
+- Please watch the video [here](https://youtu.be/DQMxH6UNmqE).
 
 ### User Web
 
-- Please watch the video [here](https://drive.google.com/file/d/1J9Q6J9Q6J9Q6J9Q6J9Q6J9Q6J9Q6J9Q6/view?usp=sharing).
+- Please watch the video [here](https://youtu.be/-ZXdzsV7Lks).
+
+> Please choose 1080p for better quality.
 
 ## Deployment
 
