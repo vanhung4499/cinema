@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>cinema</artifactId>
+		<groupId>com.hnv99</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cinema-admin</artifactId>
+	<name>cinema-admin</name>
+	<description>Backend service module, running backend project</description>
+
+	<dependencies>
+		<!-- Developer Tools -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- MySQL Data Driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- Framework Core Module -->
+		<dependency>
+			<groupId>com.hnv99</groupId>
+			<artifactId>cinema-framework</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.hnv99</groupId>
+			<artifactId>cinema-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.hnv99</groupId>
+			<artifactId>cinema-system</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork> <!-- Use DevTools for hot deployment -->
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal><!-- Repackage all dependencies into the generated jar -->
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

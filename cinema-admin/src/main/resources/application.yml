@@ -1,0 +1,53 @@
+# Spring Configuration
+spring:
+  # Data source configuration file
+  profiles:
+    active: druid
+
+  # Development tools, configure hot deployment
+  devtools:
+    restart:
+      enabled: true # Hot deployment
+  freemarker:
+    cache: false # Page caching is disabled, changes take effect immediately
+
+  # Jackson date format configuration
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  # MVC date format configuration
+  mvc:
+    format:
+      date: yyyy-MM-dd
+      date-time: yyyy-MM-dd HH:mm:ss
+
+  # File upload size limit
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+# MyBatis Configuration
+mybatis:
+  type-aliases-package: com.hnv99.**.domain # Specify the package where entities are encapsulated, avoiding writing the full class name
+  mapper-locations: classpath*:mapper/**/*Mapper.xml # Mapper configuration file locations
+  configuration:
+    map-underscore-to-camel-case: true # Configure to enable camel case naming
+
+# Logging Configuration
+logging:
+  level:
+    com.hnv99: trace
+    org.springframework: warn
+
+# PageHelper Pagination Plugin Configuration
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+server:
+  port: 8181

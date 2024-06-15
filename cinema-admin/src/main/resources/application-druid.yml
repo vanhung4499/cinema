@@ -1,0 +1,29 @@
+# Configuration of Data Source
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://localhost:3306/cinema?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+      username: root
+      password: root
+
+      # Initial number of connections
+      initialSize: 5
+      # Minimum connection pool size
+      minIdle: 10
+      # Maximum connection pool size
+      maxActive: 20
+      # Configure the maximum time to wait for a connection
+      maxWait: 60000
+      # Configure how often to check for idle connections to close, in milliseconds
+      timeBetweenEvictionRunsMillis: 60000
+      # Configure the minimum time a connection can survive in the pool, in milliseconds
+      minEvictableIdleTimeMillis: 300000
+      # Configure the maximum time a connection can survive in the pool, in milliseconds
+      maxEvictableIdleTimeMillis: 900000
+      # Configure the validation query to check if a connection is valid
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false

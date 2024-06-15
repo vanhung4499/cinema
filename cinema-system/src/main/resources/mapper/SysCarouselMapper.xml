@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnv99.system.mapper.SysCarouselMapper">
+
+    <resultMap id="CarouselMap" type="SysCarousel">
+        <id property="carouselId" column="carousel_id"></id>
+        <result property="carouselPicture" column="carousel_picture"></result>
+        <result property="carouselUrl" column="carousel_url"></result>
+        <result property="isShow" column="is_show"></result>
+    </resultMap>
+
+    <select id="findAllCarousels" resultMap="CarouselMap">
+        select * from sys_carousel
+        order by carousel_id desc
+    </select>
+
+    <select id="findCarouselById" parameterType="Long" resultMap="CarouselMap">
+        select * from sys_carousel where carousel_id = #{id}
+    </select>
+
+    <update id="addCarousel" parameterType="SysCarousel">
+        <!-- Return the generated primary key id back to the original object -->
+        <selectKey keyProperty="carouselId" keyColumn="carousel_id" resultType="long" order="AFTER">
+            select last_insert_id();
+        </selectKey>
+        insert into sys_carousel (
+        carousel_picture, carousel_url
+        ) values (
+        #{carouselPicture}, #{carouselUrl}
+    </update>
+
+    <update id="updateCarousel" parameterType="SysCarousel">
+        update sys_carousel set
+        carousel_picture = #{carouselPicture}, carousel_url = #{carouselUrl}
+        where carousel_id = #{carouselId}
+    </update>
+
+    <delete id="deleteCarousel" parameterType="Long">
+        delete from sys_carousel where carousel_id = #{id}
+    </delete>
+
+</mapper>
